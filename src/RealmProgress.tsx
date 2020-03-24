@@ -19,7 +19,7 @@
 import * as React from 'react';
 import * as Realm from 'realm';
 
-import { IRealmContext } from '.';
+import { IRealmContext, IRealmConsumerProps } from '.';
 
 interface IProgress {
   transferred: number;
@@ -77,7 +77,7 @@ export interface IRealmProgressProps {
  * Use {@link createRealmContext} or the default RealmProgress instead of calling this directly.
  */
 export const generateRealmProgress = (
-  WrappedConsumer: React.Consumer<IRealmContext>,
+  WrappedConsumer: React.ComponentType<IRealmConsumerProps>,
 ): React.ComponentType<IRealmProgressProps> => {
   /**
    * Adds a listener to the connection state (using `syncSession.addConnectionNotification`) and renders the function

@@ -20,7 +20,7 @@ import * as memoizeOne from 'memoize-one';
 import * as React from 'react';
 import * as Realm from 'realm';
 
-import { IRealmContext } from '.';
+import { IRealmContext, IRealmConsumerProps } from '.';
 
 interface IValue<T> {
   results: Realm.Results<T>;
@@ -55,7 +55,7 @@ export interface IRealmQueryProps<T> {
  * Use {@link createRealmContext} or the default RealmQuery instead of calling this directly.
  */
 export const generateRealmQuery = (
-  WrappedConsumer: React.Consumer<IRealmContext>,
+  WrappedConsumer: React.ComponentType<IRealmConsumerProps>,
 ): React.ComponentType<IRealmQueryProps<any>> => {
   class RealmQuery<T> extends React.Component<IRealmQueryProps<T>> {
     private results?: Realm.Results<T>;

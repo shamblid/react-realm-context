@@ -19,7 +19,7 @@
 import * as React from 'react';
 import * as Realm from 'realm';
 
-import { IRealmContext } from '.';
+import { IRealmContext, IRealmConsumerProps } from '.';
 
 /**
  * Props passed to a RealmInitializer component.
@@ -34,7 +34,7 @@ export interface IRealmInitializerProps {
  * Use {@link createRealmContext} or the default RealmInitializer instead of calling this directly.
  */
 export const generateRealmInitializer = (
-  WrappedConsumer: React.Consumer<IRealmContext>,
+  WrappedConsumer: React.ComponentType<IRealmConsumerProps>,
 ) => {
   const RealmInitializer = ({ children }: IRealmInitializerProps) => (
     <WrappedConsumer>

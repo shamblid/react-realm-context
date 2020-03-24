@@ -19,7 +19,7 @@
 import * as React from 'react';
 import * as Realm from 'realm';
 
-import { IRealmContext } from '.';
+import { IRealmContext, IRealmConsumerProps } from '.';
 
 interface IRealmConnectionState {
   connectionState: Realm.Sync.ConnectionState;
@@ -38,7 +38,7 @@ export interface IRealmConnectionProps {
  * Use {@link createRealmContext} or the default RealmConnection instead of calling this directly.
  */
 export const generateRealmConnection = (
-  WrappedConsumer: React.Consumer<IRealmContext>,
+  WrappedConsumer: React.ComponentType<IRealmConsumerProps>,
 ): React.ComponentType<IRealmConnectionProps> => {
   /**
    * Adds a listener to the connection state (using `syncSession.addConnectionNotification`) and renders the function

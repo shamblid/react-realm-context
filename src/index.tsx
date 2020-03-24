@@ -32,6 +32,7 @@ import {
 } from './RealmProgress';
 import { generateRealmProvider, IRealmProviderProps } from './RealmProvider';
 import { generateRealmQuery, IRealmQueryProps, Sorting } from './RealmQuery';
+import { generateRealmHooks } from './RealmHook';
 import { generateWithRealm } from './withRealm';
 
 export {
@@ -60,6 +61,7 @@ const createRealmContext = () => {
     RealmInitializer: generateRealmInitializer(Consumer),
     RealmConnection: generateRealmConnection(Consumer),
     RealmProgress: generateRealmProgress(Consumer),
+    RealmHooks: generateRealmHooks(context),
     withRealm: generateWithRealm(Consumer),
   };
 };
@@ -111,6 +113,8 @@ const {
    */
   RealmProgress,
 
+  RealmHooks,
+
   /**
    * The default withRealm HOC, which will get its Realm from the default RealmProvider.
    *
@@ -126,5 +130,6 @@ export {
   RealmInitializer,
   RealmConnection,
   RealmProgress,
+  RealmHooks,
   withRealm,
 };
